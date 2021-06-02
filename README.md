@@ -1,70 +1,58 @@
-# Getting Started with Create React App
+# Five Second Timer
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+To install and run the project , unzip it and run 'npm install'
 
-## Available Scripts
+**Note**: If you encounter an issue like this
 
-In the project directory, you can run:
+*Missing binding /Users/umukherjee/Documents/_CODE_KATA/_REACT_TIMER/five-second-timer/node_modules/node-sass/vendor/darwin-x64-72/binding.node
+Node Sass could not find a binding for your current environment: OS X 64-bit with Node.js 12.x
 
-### `yarn start`
+Found bindings for the following environments:
+  - OS X 64-bit with Node.js 10.x
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This usually happens because your environment has changed since running `npm install`.
+Run `npm rebuild node-sass` to download the binding for your current environment.*
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Then please do `npm rebuild node-sass`
 
-### `yarn test`
+### Start the  project.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Please run npm start. The timer will appear here - ***localhost:3000***
 
-### `yarn build`
+### Run unit tests
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Please run ***npm run test***. There are 2 tests which will run
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Use Cases
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. At first we can see a circle with gray background. The timer state is 'INIT'.
 
-### `yarn eject`
+2. When user clicks inside the circle, the timer starts running for 5 seconds and the circle turns black in clockwise direction. The timer state is now 'RUNNING'. When 5 seconds is over,  the whole circle is black.
+The timer state is now 'STOPPED'.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+3. Now, if the user clicks inside the circle again, then the circle starts turning gray in anticlockwise direction. The duration is now 300 ms. The timer state is 'REVERSE'. After 300 miliseconds, the circle. will turn gray again.  The timer has been reset. The timer state is now 'INIT'.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. Again the user can click and the timer will start running again.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+5. When timer is running , if the user clicks on the circle, the timer will pause. The state is now 'PAUSED'. Now, if the user clicks the circle once again, the timer starts running again.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Design
 
-## Learn More
+- I have used React hooks.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- A component 'Timer' has been created which can take 2 properties - 'baseDuration' and 'reverseDuration'. These are the times taken to start and reset the timer. This is just an example. We can use more properties as inputs.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- The above design creates a reusable component 'Timer'
 
-### Code Splitting
+- The circle has a radius of 40
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Additional Libraries used
 
-### Analyzing the Bundle Size
+1. **node-sass* to create sass files for better organization of CSS files
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+2. eslint has been used for linting
 
-### Making a Progressive Web App
+3. '@testing-library/react' has been used for unit testing
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+4. '@testing-library/jest-dom' has been included to use jest matchers inside unit tests.
