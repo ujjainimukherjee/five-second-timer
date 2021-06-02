@@ -1,9 +1,10 @@
 # Five Second Timer
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-To install and run the project , unzip it and run 'npm install'
+![image](https://user-images.githubusercontent.com/7864652/120560114-6d02c500-c3bf-11eb-9214-15df4634987a.png)
 
-**Note**: If you encounter an issue like this
+
+
+**Note**: If you encounter an issue while doing npm install
 
 *Missing binding /Users/umukherjee/Documents/_CODE_KATA/_REACT_TIMER/five-second-timer/node_modules/node-sass/vendor/darwin-x64-72/binding.node
 Node Sass could not find a binding for your current environment: OS X 64-bit with Node.js 12.x
